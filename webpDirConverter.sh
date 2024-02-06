@@ -1,13 +1,22 @@
 #!/usr/bin/bash
 
-# Converts all png files in a directory to webp
+# Converts all image files in a directory to webp (default is png files)
 
 # Usage:
 #   - move this script into desired directory
 #   - run `./webpDirConverter.sh`
+#
+# Optional: pass file extension as an argument
+#   - example: `./webpDirConverter.sh jpg` to convert all `.jpg`'s in a directory
 
-for FILE in ./*.png; do
-  fileName=$(basename $FILE .png)
-  convert $fileName.png $fileName.webp
+ext=$1
+
+if [[ $ext == "" ]]; then
+  ext="png"
+fi
+
+for FILE in ./*.$ext; do
+  fileName=$(basename $FILE .$ext)
+  convert $fileName.$ext $fileName.webp
   echo "$FILE converted to webp"
 done
