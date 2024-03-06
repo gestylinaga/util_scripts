@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# Renames all files in a directory (with a 3 character extension ie: png/jpg/mp4)
-# to an incremental number with the original file extension
+# Renames all files in a directory to an incremental number while keeping the 
+# original file extension
 
 # USAGE:
 #   - copy this file into desired directory
@@ -10,7 +10,7 @@
 
 import os
 
-thisFile = "dirNumbers.py" # saved to variable to ignore in rename
+this_file = "dirNumbers.py" # saved to variable to ignore in rename
 i = 1 # starting number
 
 for file in os.listdir("./"):
@@ -19,9 +19,13 @@ for file in os.listdir("./"):
         continue
 
     # ignore this .py file
-    if file != thisFile:
-        fileName = file[:-4]
-        ext = file[-4:]
-        print(f"{file} => {i}{ext}")
-        os.rename(file, f"{i}{ext}")
+    if file != this_file:
+        # filename / extension parsing
+        file_name_as_list = file.split(".")
+        filename = "".join(file_name_as_list[:-1])
+        ext = "".join(file_name_as_list[-1:])
+
+        # results & rename
+        print(f"{file} => {i}.{ext}")
+        os.rename(file, f"{i}.{ext}")
         i += 1
