@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 
 # Renames all files in a directory to an incremental number while keeping the 
-# original file extension
+# original file extension (default starting number is 1)
 
 # USAGE:
-#   - copy this file into desired directory
-#   - run `./dirNumbers.py`
-#   - optional -- pass number for starting index (otherwise defaults to 1):
-#       - run `./dirNumbers.py 42` to start filenames at `42`
+#     - copy this file into desired directory
+#     - run `./dirNumbers.py`
+#
+# OPTIONAL: 
+#     - pass number as argument for starting index (otherwise defaults to 1):
+#     - example: `./dirNumbers.py 42` to start filenames at `42`
 
 import os
 from sys import argv

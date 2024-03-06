@@ -2,7 +2,7 @@
 
 # Converts .wav audio file to .mp3 file (with matching filename)
 
-# Usage:
+# USAGE:
 # - run `./mp3Convert.sh filename`
 
 name=$1

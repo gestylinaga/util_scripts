@@ -2,11 +2,12 @@
 
 # Converts all image files in a directory to webp (default is png files)
 
-# Usage:
+# USAGE:
 #   - move this script into desired directory
 #   - run `./webpDirConverter.sh`
 #
-# Optional: pass file extension as an argument
+# OPTIONAL: 
+#   - pass file extension as an argument
 #   - example: `./webpDirConverter.sh jpg` to convert all `.jpg`'s in a directory
 
 ext=$1
