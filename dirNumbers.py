@@ -5,13 +5,22 @@
 
 # USAGE:
 #   - copy this file into desired directory
-#   - change `i` variable to desired starting number
-#   - run `./renameToNumbers.py`
+#   - run `./dirNumbers.py`
+#   - optional -- pass number for starting index (otherwise defaults to 1):
+#       - run `./dirNumbers.py 42` to start filenames at `42`
 
 import os
+from sys import argv
 
 this_file = "dirNumbers.py" # saved to variable to ignore in rename
-i = 1 # starting number
+try:
+    i = int(argv[1]) # argument passed as starting number
+except IndexError:
+    i = 1 # defaults to `1` if no argument is passed
+except ValueError:
+    # Prints error on invalid argument & exits
+    print("Value Error: argument passed is not a number")
+    exit()
 
 for file in os.listdir("./"):
     # only work on regular files (exclude directories)
